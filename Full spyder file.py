@@ -15,7 +15,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from matplotlib import pyplot
 
-# define the standalone discriminator model
+# define the standalone discriminator/adversary model
 def define_discriminator(n_inputs=2):
 	model = Sequential()
 	model.add(Dense(25, activation='relu', kernel_initializer='he_uniform', input_dim=n_inputs))
@@ -24,7 +24,7 @@ def define_discriminator(n_inputs=2):
 	model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 	return model
 
-# define the standalone generator model
+# define the standalone generator/discriminator model
 def define_generator(latent_dim, n_outputs=2):
 	model = Sequential()
 	model.add(Dense(15, activation='relu', kernel_initializer='he_uniform', input_dim=latent_dim))
